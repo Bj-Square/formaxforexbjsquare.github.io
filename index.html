@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formax Forex Sale Register</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+
+:root{
+  --font-1: "Black Ops One", system-ui;
+}
+
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  font-family: 'MyFont';
+}
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('./3.otf') format('truetype');
+}
+@font-face {
+    font-family: 'MyFont1';
+    src: url('./13.otf') format('truetype');
+}
+@font-face {
+    font-family: 'MyFont2';
+    src: url('./17.TTF') format('truetype');
+}
+@font-face {
+    font-family: 'MyFont3';
+    src: url('./18.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'MyFont4';
+    src: url('./20.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'MyFont5';
+    src: url('./23.otf') format('truetype');
+}
+@font-face {
+    font-family: 'MyFont6';
+    src: url('./25.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'MyFont7';
+    src: url('./27.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'MyFont8';
+    src: url('./29.otf') format('truetype');
+}
+@font-face {
+    font-family: 'MyFont9';
+    src: url('./38.ttf') format('truetype');
+}
+
+body{
+  background:radial-gradient(circle at center,#0f172a,#000);
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.header{background: none; border:0px solid #bbb;padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center;}
+.logo{cursor: pointer;width: 20%;transition: .3s;}
+.logo:hover{
+  scale: 1.05;
+}
+.date-box{display:flex;align-items:center;justify-content: center;}
+.date-btn{
+  cursor:pointer;
+  font-size:25px;
+  text-transform: uppercase;
+  font-family: var(--font-1);
+  padding: 6px 15px;
+  border: none;
+  display: flex;
+  align-items:center;
+  background: none;
+  justify-content: center;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  color: white;
+  transition: .3s ease-in-out;
+}
+#prevDate{
+  border-right: none;
+  border-radius: 20px 0 0 20px;
+  font-family: 'MyFont1';
+}
+#nextDate{
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  font-family: 'MyFont1';
+}
+.date-btn:hover{
+  scale: 1.05;
+}
+#currentDate{
+  min-width:160px;
+  text-align:center;
+  border-left: none;
+  border-right: none;
+  padding:1.1px 10px;
+  font-family: 'MyFont9';
+  font-weight:bold;
+  font-size: 30px;
+  margin-top: -2px;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  background-clip: text;
+  color: transparent;
+  transition: .3s ease-in-out;
+}
+#currentDate:hover{
+  font-size: 32px;
+}
+.container{display:flex;gap:15px;align-items:flex-start;padding: 2rem 3rem;}
+.listbox-panel{flex:0}
+.left{width:305px}
+.right{flex:1}
+.title{background:#b71c1c;color:#fff;text-align:center;padding:5px 0 0 0;font-size:30px;font-weight:100;width: 300px;border-radius: 20px 20px 0 0;cursor: pointer;}
+.panel{background:#ffdede;border:2px solid #b71c1c;padding-top:10px;width: 300px;display: flex;flex-direction: column;align-items: center;}
+input,textarea{width:90%;padding:10px 20px;margin-bottom:8px;border-radius: 10px;outline:none;border:1px solid #aaa;font-family: 'MyFont7';font-size: 20px;}
+textarea{height:70px;resize:none}
+input:focus,textarea:focus{border: 2px solid #b71c1c;color: #b71c1c;font-weight: 600;}
+.btns{display:flex;gap:0px;width: 100%;border-top:2px solid #b71c1c;}
+.btns button{flex:1;padding:5px;border: none; background:#fff;color:#b71c1c;cursor:pointer;font-size:20px;transition: .3s;font-family: 'MyFont8';letter-spacing: 1px;}
+#updateBtn{border-right: 2px solid #b71c1c;border-left: 2px solid #b71c1c;}
+.btns button:hover{background: #b71c1c;color: #fff;}
+table{width:100%;border-collapse:collapse;background:#fff}
+th,td{border:1px solid #ccc;padding:6px;text-align:center}
+thead{background:#b71c1c;color:#fff}
+.small-wrap{height:455px;width: 500px;}
+.big-wrap{height:560px;overflow:auto}
+.selected{background:#66df84 !important}
+.totalbox{display:flex;margin-top:0px}
+.totalbox div{padding:10px;border:1px solid #8b0000}
+.totaltitle{background:#b71c1c;color:#fff;font-weight:bold;width:450px}
+.totalvalue{background:#fff;width:50px;text-align:center}
+
+.header-tools{display:flex;gap:20px;align-items:center}
+.header-tools input{width:250px;margin:0;padding:10px}
+.header-tools button{padding:10px 14px;border:none;cursor:pointer;border-radius:6px;background:#b71c1c;color:#fff}
+
+.dark{background:#1e1e1e;color:#fff}
+.dark .header,.dark .panel,.dark table,.dark .totalvalue{background:#2d2d2d;color:#fff}
+.dark input,.dark textarea{background:#3a3a3a;color:#fff;border:1px solid #666}
+.dark th{background:#8b0000}
+.dark td{border-color:#555}
+.dark #currentDate{background:#444;color:#fff}
+
+
+.right table{table-layout:fixed}
+.right th:nth-child(1), .right td:nth-child(1){width:120px}
+.right th:nth-child(2), .right td:nth-child(2){width:180px}
+.right th:nth-child(3), .right td:nth-child(3){width:120px}
+.right th:nth-child(4), .right td:nth-child(4){width:auto}
+
+
+.purchase-title{background:#3bb71c;color:#fff;text-align:center;padding:5px 0 0 0;font-size:30px;font-weight:100;margin-top:15px;border: 2px solid #3bb71c;border-radius: 20px 20px 0 0;cursor: pointer;}
+.purchase-panel{background:#e2f0c8;border:2px solid #3bb71c;padding-top:10px;width: 300px;display: flex;flex-direction: column;align-items: center;}
+.purchase-btns{display:flex;gap:0px;width: 100%;border-top:2px solid #3bb71c;}
+.purchase-btns button{flex:1;padding:5px;border:none;background:#fff;color:#3bb71c;cursor:pointer;font-size:20px;font-family: 'MyFont8';letter-spacing: 1px;transition: .3s;}
+#pupdateBtn{border-right: 2px solid #3bb71c;border-left: 2px solid #3bb71c;}
+.purchase-btns button:hover{background: #3bb71c;color: #fff;}
+#pitem,#pamount,#pdetail{width:90%;padding:10px 20px;margin-bottom:8px;border-radius: 10px;outline:none;border:1px solid #aaa;font-family: 'MyFont7';font-size: 20px;}
+#pdetail{height:70px;resize:none}
+#pitem:focus,#pamount:focus,#pdetail:focus{border: 2px solid #3bb71c;color: #3bb71c;font-weight: 600;}
+.purchase-head{background:#3bb71c !important}
+.purchase-total{background:#3bb71c !important}
+
+#clearAllBtn,
+#darkModeBtn{
+  background: none;
+  outline: none;
+  border: 2px solid red;
+  border-radius: 20px;
+  color: red;
+  font-family: 'MyFont1';
+  font-size: 20px;
+  font-weight: 400;
+  padding:7px 20px 5px 20px;
+  display: flex;align-items: center;justify-content: center;
+  transition: .3s;
+}
+
+#darkModeBtn{
+  background: black;
+  color: white;
+  border-color: white;
+}
+
+#clearAllBtn:hover{
+  box-shadow: 0 0 10px red;
+  background: red;
+  color: white;
+  scale: 1.05;
+}
+
+#darkModeBtn:hover{
+  box-shadow: 0 0 10px white;
+  background: white;
+  color: black;
+  scale: 1.05;
+}
+
+
+.cash-panel{width:500px;margin-left:10px}
+.cash-header,.cash-row-label,.cash-total-label,.cash-value{
+background:#f7941d;color:#fff;font-family:'MyFont1';text-align:center;border:1px solid #b96a0d;}
+.cash-header{font-size:42px;padding:10px}
+.cash-grid{display:grid;grid-template-columns:100px 150px 220px;}
+.cash-row-label{font-size:32px;padding:10px;margin: 5px 0;}
+.cash-grid input{width:100%;margin:0;border:1px solid #aaa;border-radius:0;padding:10px;font-size:28px;text-align:center;margin: 5px 0;}
+.cash-value{font-size:28px;padding:10px;margin: 5px 0;}
+.cash-total-label{grid-column:1/3;font-size:40px;padding:10px}
+.cash-grand{background:#fff;font-size:32px;display:flex;align-items:center;justify-content:center;border:1px solid #aaa;margin-left: -50px;}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img src="./Picture1.png" alt="" class="logo">
+  <div class="date-box">
+    <button id="prevDate" class="date-btn">Prev</button>
+    <div id="currentDate"></div>
+    <input type="date" id="datePicker" style="display:none">
+    <button id="nextDate" class="date-btn">Next</button>
+  </div>
+  <div class="header-tools">
+    <button id="clearAllBtn">Clear All</button>
+    <button id="darkModeBtn">Dark</button>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="left">
+    <div class="title" style="font-family: 'MyFont3';">SALE</div>
+    <div class="panel">
+      <input id="item" placeholder="Item">
+      <input id="amount" placeholder="Amount">
+      <textarea id="detail" placeholder="Customer Detail"></textarea>
+      <div class="btns">
+        <button id="addBtn">ADD</button>
+        <button id="updateBtn">UPDATE</button>
+        <button id="deleteBtn">DELETE</button>
+      </div>
+    </div>
+
+    <div class="title purchase-title" style="font-family: 'MyFont3';">PURCHASE</div>
+      <div class="purchase-panel">
+      <input id="pitem" placeholder="Item">
+      <input id="pamount" placeholder="Amount">
+      <textarea id="pdetail" placeholder="Customer Detail"></textarea>
+      <div class="purchase-btns">
+        <button id="paddBtn">ADD</button>
+        <button id="pupdateBtn">UPDATE</button>
+        <button id="pdeleteBtn">DELETE</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="listbox-panel">
+    <table style="width: 500px;border-radius: 20px 20px 0 0;background: #b71c1c;overflow: hidden;border: 2px solid #b71c1c;">
+      <thead>
+        <tr>
+          <th style="width: 300px;font-size: 30px;font-family:'MyFont8';font-weight: 100;padding: 0;">ITEM</th>
+          <th style="width: 200px;font-size: 30px;font-family:'MyFont8';font-weight: 100;padding: 0;">AMOUNT</th>
+        </tr>
+      </thead>
+    </table>
+    <div class="small-wrap" style="background-image: url('./128.jfif');background-position: center;background-repeat: no-repeat;background-size: cover; border: 2px solid #b71c1c;border-bottom: none;">
+      <table>
+        <tbody id="list2" style="cursor: pointer;"></tbody>
+      </table>
+    </div>
+    <div class="totalbox" style="width: 500px;">
+      <div class="totaltitle" style="width: 300px;font-size: 30px;text-align: center;border: 2px solid #b71c1c;font-family:'MyFont8';font-weight: 100;padding: 0;">TOTAL</div>
+        <div class="totalvalue" id="total" style="display: flex;align-items: center;justify-content: center; width: 200px;font-size: 30px;border: 2px solid #b71c1c;color: #b71c1c;font-family:var(--font-1);padding: 0;">0</div>
+      </div>
+    </div>
+
+
+<div class="listbox-panel">
+<table style="width: 500px;border-radius: 20px 20px 0 0;background: #3bb71c;overflow: hidden;border: 2px solid #3bb71c;">
+<thead>
+  <tr>
+    <th class="purchase-head" style="width: 300px;font-size: 30px;font-family:'MyFont8';font-weight: 100;padding: 0;">ITEM</th>
+    <th class="purchase-head" style="width: 200px;font-size: 30px;font-family:'MyFont8';font-weight: 100;padding: 0;">AMOUNT</th>
+  </tr>
+</thead>
+</table>
+<div class="small-wrap" style="background:none;border: 2px solid #3bb71c;border-bottom: none;">
+<table>
+<tbody id="plist2"></tbody>
+</table>
+</div>
+
+<div class="totalbox" style="width: 500px;">
+<div class="totaltitle purchase-total" style="width: 300px;font-size: 30px;text-align: center;border: 2px solid #3bb71c;font-family:'MyFont8';font-weight: 100;padding: 0;">TOTAL</div>
+<div class="totalvalue" id="ptotal" style="display: flex;align-items: center;justify-content: center; width: 200px;font-size: 30px;border: 2px solid #3bb71c;color: #3bb71c;font-family:var(--font-1);font-weight: 100;padding: 0;">0</div>
+</div>
+</div>
+
+
+
+<div class="cash-panel">
+  <div class="cash-header" style="margin-bottom: 10px; border-radius: 50px;font-family: 'MyFont3';padding: 10px 0;font-size: 35px;">CASH DETAIL</div>
+  <div class="cash-grid">
+
+    <div class="cash-row-label" style="font-family: 'MyFont3';">500</div>
+    <input class="cashQty" data-note="500" style="font-family:'MyFont3';color: #f7941d;">
+    <div class="cash-value" id="v500" style="font-family: var(--font-1);">0</div>
+
+    <div class="cash-row-label" style="font-family: 'MyFont3';">200</div>
+    <input class="cashQty" data-note="200" style="font-family:'MyFont3';color: #f7941d;">
+    <div class="cash-value" id="v200" style="font-family: var(--font-1);">0</div>
+
+    <div class="cash-row-label" style="font-family: 'MyFont3';">100</div>
+    <input class="cashQty" data-note="100" style="font-family:'MyFont3';color: #f7941d;">
+    <div class="cash-value" id="v100" style="font-family: var(--font-1);">0</div>
+
+    <div class="cash-row-label" style="font-family: 'MyFont3';">50</div>
+    <input class="cashQty" data-note="50" style="font-family:'MyFont3';color: #f7941d;">
+    <div class="cash-value" id="v50" style="font-family: var(--font-1);">0</div>
+
+    <div class="cash-row-label" style="font-family: 'MyFont3';">20</div>
+    <input class="cashQty" data-note="20" style="font-family:'MyFont3';color: #f7941d;">
+    <div class="cash-value" id="v20" style="font-family: var(--font-1);">0</div>
+
+    <div class="cash-row-label" style="font-family: 'MyFont3';">10</div>
+    <input class="cashQty" data-note="10" style="font-family:'MyFont3';color: #f7941d;">
+    <div class="cash-value" id="v10" style="font-family: var(--font-1);">0</div>
+
+    <div class="cash-row-label" style="font-family: 'MyFont3';">5</div>
+    <input class="cashQty" data-note="5" style="font-family:'MyFont3';color: #f7941d;">
+    <div class="cash-value" id="v5" style="font-family: var(--font-1);">0</div>
+
+    <div class="cash-total-label" style="font-family: 'MyFont8';padding: 0;font-size: 30px;width: 200px;background: none;border: none;margin-top: 20px;border-top: 2px solid white;border-bottom: 2px solid white;">TOTAL</div>
+
+    <div class="cash-grand" id="cashGrand" style="background: none;font-family:var(--font-1);font-weight: 100; padding: 0;width: 270px;margin-top: 20px;border: none;color: white;font-size: 35px;border-top: 2px solid white;border-bottom: 2px solid white;">0</div>
+
+  </div>
+</div>
+
+<div class="right" style="display:none">
+
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>ITEM</th>
+<th>AMOUNT</th>
+<th>DETAIL</th>
+</tr>
+</thead>
+</table>
+<div class="big-wrap">
+<table>
+<tbody id="list1"></tbody>
+</table>
+</div>
+</div>
+</div>
+
+<script>
+
+function showCustomAlert(message){
+ const box=document.createElement("div");
+ box.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;z-index:100000";
+ box.innerHTML=`
+ <div style="min-width:340px;background:rgba(255,255,255,.15);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.25);padding:22px;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.35);animation:pop .2s ease">
+   <div style="font-size:20px;color:white;margin-bottom:12px">🔔 Message</div>
+   <div style="color:white;margin-bottom:18px">${message}</div>
+   <div style="text-align:right">
+      <button id="caok" style="padding:10px 18px;border:none;border-radius:10px;background:linear-gradient(135deg,#00c6ff,#0072ff);color:#fff;cursor:pointer">OK</button>
+   </div>
+ </div>`;
+ document.body.appendChild(box);
+ box.querySelector("#caok").onclick=()=>box.remove();
+}
+window.alert=showCustomAlert;
+
+let data = JSON.parse(localStorage.getItem("salesData") || "[]");
+
+
+function passwordInputBox(message){
+  return new Promise((resolve)=>{
+    const overlay=document.createElement("div");
+    overlay.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;z-index:99999;animation:fadeIn .25s ease";
+
+    const style=document.createElement("style");
+    style.textContent=`
+      @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+      @keyframes popIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+    `;
+    document.head.appendChild(style);
+
+    overlay.innerHTML=`
+      <div style="animation:popIn .25s ease;background:rgba(255,255,255,.15);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.25);padding:24px;border-radius:20px;min-width:380px;box-shadow:0 20px 50px rgba(0,0,0,.35)">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;color:#fff;font-size:20px;font-weight:bold">
+          🔒 <span>${message}</span>
+        </div>
+
+        <div style="position:relative">
+          <input id="pwdBoxInput" type="password" placeholder="Enter Password"
+          style="width:100%;padding:13px 45px 13px 13px;border:2px solid rgba(255,255,255,.25);background:rgba(255,255,255,.12);color:white;border-radius:12px;outline:none;transition:.25s">
+          
+          <span id="togglePwd"
+          style="position:absolute;right:14px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:18px">👁</span>
+        </div>
+
+        <div style="margin-top:18px;display:flex;justify-content:flex-end;gap:10px">
+          <button id="pwdCancel" style="padding:10px 18px;border:none;border-radius:10px;background:linear-gradient(135deg,#777,#555);color:white;cursor:pointer;transition:.25s">Cancel</button>
+          <button id="pwdOk" style="padding:10px 18px;border:none;border-radius:10px;background:linear-gradient(135deg,#00c6ff,#0072ff);color:white;cursor:pointer;transition:.25s">OK</button>
+        </div>
+      </div>`;
+
+    document.body.appendChild(overlay);
+
+    const inp=overlay.querySelector("#pwdBoxInput");
+    const eye=overlay.querySelector("#togglePwd");
+    const okBtn=overlay.querySelector("#pwdOk");
+    const cancelBtn=overlay.querySelector("#pwdCancel");
+
+    inp.focus();
+
+    inp.onfocus=()=>{
+      inp.style.borderColor="#4facfe";
+      inp.style.boxShadow="0 0 0 4px rgba(79,172,254,.25)";
+    };
+
+    inp.onblur=()=>{
+      inp.style.borderColor="rgba(255,255,255,.25)";
+      inp.style.boxShadow="none";
+    };
+
+    eye.onclick=()=>{
+      if(inp.type==="password"){
+        inp.type="text";
+        eye.textContent="🙈";
+      }else{
+        inp.type="password";
+        eye.textContent="👁";
+      }
+    };
+
+    [okBtn,cancelBtn].forEach(btn=>{
+      btn.onmouseenter=()=>btn.style.transform="translateY(-2px) scale(1.04)";
+      btn.onmouseleave=()=>btn.style.transform="translateY(0) scale(1)";
+    });
+
+    function close(v){
+      overlay.remove();
+      resolve(v);
+    }
+
+    okBtn.onclick=()=>close(inp.value);
+    cancelBtn.onclick=()=>close(null);
+
+    inp.addEventListener("keydown",(e)=>{
+      if(e.key==="Enter") close(inp.value);
+      if(e.key==="Escape") close(null);
+    });
+  });
+}
+
+let selectedIndex = -1;
+let selectedDate = new Date();
+
+function formatDate(d){
+ let dd=String(d.getDate()).padStart(2,'0');
+ let mm=String(d.getMonth()+1).padStart(2,'0');
+ let yy=d.getFullYear();
+ return `${dd}-${mm}-${yy}`;
+}
+
+function save(){
+ localStorage.setItem("salesData",JSON.stringify(data));
+}
+
+async function checkPastDatePassword(){
+ let today=new Date();
+ today.setHours(0,0,0,0);
+
+ let current=new Date(selectedDate);
+ current.setHours(0,0,0,0);
+
+ if(current.getTime()===today.getTime()) return true;
+
+ let pwd=await passwordInputBox("Past date data modify karne ke liye password enter kare:");
+ if(pwd===null) return false;
+
+ let savedPwd=localStorage.getItem("clearPassword") || "Radhe Radhe";
+
+ if(pwd!==savedPwd){
+   alert("Wrong Password");
+   return false;
+ }
+ return true;
+}
+
+function showDate(){
+ document.getElementById("currentDate").textContent=formatDate(selectedDate);
+ renderAll();
+}
+
+document.getElementById("prevDate").onclick=()=>{
+ selectedDate.setDate(selectedDate.getDate()-1);
+ showDate();
+};
+
+document.getElementById("nextDate").onclick=()=>{
+ let today=new Date();
+ today.setHours(0,0,0,0);
+
+ let current=new Date(selectedDate);
+ current.setHours(0,0,0,0);
+
+ if(current.getTime() >= today.getTime()){
+   alert("Aaj ki date se aage nahi ja sakte.");
+   return;
+ }
+
+ selectedDate.setDate(selectedDate.getDate()+1);
+ showDate();
+};
+
+function renderMain(){
+ let tb=document.getElementById("list1");
+ tb.innerHTML="";
+ data.forEach((r,i)=>{
+   let tr=document.createElement("tr");
+   if(i===selectedIndex) tr.classList.add("selected");
+   tr.innerHTML=`
+   <td>${r.date}</td>
+   <td>${r.item}</td>
+   <td>${r.amount}</td>
+   <td>${r.detail}</td>`;
+
+   tr.onclick=()=>{
+      selectedIndex=i;
+      document.getElementById("item").value=r.item;
+      document.getElementById("amount").value=r.amount;
+      document.getElementById("detail").value=r.detail;
+      renderMain();
+   };
+   tb.appendChild(tr);
+ });
+}
+
+function renderDateTable(){
+ let tb=document.getElementById("list2");
+ tb.innerHTML="";
+ let total=0;
+ let d=formatDate(selectedDate);
+
+ data.filter(x=>x.date===d).forEach(r=>{
+   let tr=document.createElement("tr");
+   tr.innerHTML=`<td style="width:300px;text-align:left;font-size:20px;text-transform: uppercase;font-family:'MyFont3';font-weight:100;"">${r.item}</td><td style="width:200px;text-align:right;font-size:20px;text-transform: uppercase;font-family:'MyFont3';font-weight:100;">${r.amount}</td>`;
+   tr.onclick=()=>{
+      let idx=data.indexOf(r);
+      selectedIndex=idx;
+      document.getElementById("item").value=r.item;
+      document.getElementById("amount").value=r.amount;
+      document.getElementById("detail").value=r.detail;
+   };
+   tb.appendChild(tr);
+
+   let n=parseFloat(r.amount);
+   if(!isNaN(n)) total+=n;
+ });
+
+ document.getElementById("total").textContent=total;
+}
+
+function renderAll(){
+ renderMain();
+ renderDateTable();
+}
+
+document.getElementById("addBtn").onclick=async ()=>{
+ if(!(await checkPastDatePassword())) return;
+ let item=document.getElementById("item").value.trim();
+ let amount=document.getElementById("amount").value.trim();
+ let detail=document.getElementById("detail").value.trim();
+
+ if(!item){alert("Enter Item");return;}
+ if(!amount){alert("Enter Amount");return;}
+
+ data.push({
+   date:formatDate(selectedDate),
+   item,amount,detail
+ });
+
+ save();
+ renderAll();
+
+ document.getElementById("item").value="";
+ document.getElementById("amount").value="";
+ document.getElementById("detail").value="";
+ 
+};
+
+document.getElementById("updateBtn").onclick=async ()=>{
+ if(selectedIndex<0){
+   alert("Select a row first");
+   return;
+ }
+
+ if(!document.getElementById("item").value.trim() || !document.getElementById("amount").value.trim()){
+   alert("Item aur Amount blank hone par Update nahi hoga");
+   document.getElementById("item").value="";
+   document.getElementById("amount").value="";
+   document.getElementById("detail").value="";
+   selectedIndex=-1;
+   return;
+ }
+ if(!(await checkPastDatePassword())) return;
+ data[selectedIndex].item=document.getElementById("item").value;
+ data[selectedIndex].amount=document.getElementById("amount").value;
+ data[selectedIndex].detail=document.getElementById("detail").value;
+
+ save();
+ renderAll();
+
+ document.getElementById("item").value="";
+ document.getElementById("amount").value="";
+ document.getElementById("detail").value="";
+ selectedIndex=-1;
+};
+
+document.getElementById("deleteBtn").onclick=async ()=>{
+ if(!(await checkPastDatePassword())) return;
+ if(selectedIndex<0){
+   alert("Select a row first");
+   return;
+ }
+
+ if(!confirm("Delete selected record?")) return;
+
+ data.splice(selectedIndex,1);
+ selectedIndex=-1;
+
+ save();
+ renderAll();
+
+ document.getElementById("item").value="";
+ document.getElementById("amount").value="";
+ document.getElementById("detail").value="";
+
+ 
+};
+
+showDate();
+
+if(document.getElementById("searchBox")) document.getElementById("searchBox").oninput=renderAll;
+
+if(document.getElementById("exportBtn")) document.getElementById("exportBtn").onclick=()=>{
+ let rows=[["DATE","ITEM","AMOUNT","DETAIL"]];
+ data.forEach(r=>rows.push([r.date,r.item,r.amount,r.detail]));
+ let csv=rows.map(r=>r.map(v=>`"${String(v).replaceAll('"','""')}"`).join(",")).join("\n");
+ let blob=new Blob([csv],{type:"text/csv"});
+ let a=document.createElement("a");
+ a.href=URL.createObjectURL(blob);
+ a.download="sales_data.csv";
+ a.click();
+};
+
+
+if(!localStorage.getItem("clearPassword")){
+ localStorage.setItem("clearPassword","Radhe Radhe");
+}
+
+document.getElementById("clearAllBtn").onclick=async ()=>{
+ let pwd=await passwordInputBox("Enter password to clear selected date data:");
+ if(pwd===null) return;
+
+ let savedPwd=localStorage.getItem("clearPassword") || "Radhe Radhe";
+
+ if(pwd!==savedPwd){
+   alert("Wrong Password");
+   return;
+ }
+
+ if(!confirm("Delete records of selected date only?")) return;
+
+ let d=formatDate(selectedDate);
+ data=data.filter(x=>x.date!==d);
+ purchaseData=purchaseData.filter(x=>x.date!==d);
+
+ selectedIndex=-1;
+ purchaseSelectedIndex=-1;
+ save();
+ savePurchase();
+ renderAll();
+
+ alert("Selected date Sale & Purchase data cleared successfully");
+};
+
+document.getElementById("clearAllBtn").ondblclick=async ()=>{
+ let current=await passwordInputBox("Current Password:");
+ if(current===null) return;
+
+ let savedPwd=localStorage.getItem("clearPassword") || "Radhe Radhe";
+
+ if(current!==savedPwd){
+   alert("Current password is incorrect");
+   return;
+ }
+
+ let newPwd=await passwordInputBox("New Password:");
+ if(newPwd===null || newPwd==="") return;
+
+ let confirmPwd=await passwordInputBox("Confirm Password:");
+ if(confirmPwd===null) return;
+
+ if(newPwd!==confirmPwd){
+   alert("New Password and Confirm Password do not match");
+   return;
+ }
+
+ localStorage.setItem("clearPassword",newPwd);
+ alert("Password Changed Successfully");
+};
+
+
+
+
+document.querySelector(".logo").ondblclick=async ()=>{
+ let current=await passwordInputBox("Current Password:");
+ if(current===null) return;
+
+ let savedPwd=localStorage.getItem("clearPassword") || "Radhe Radhe";
+
+ if(current!==savedPwd){
+   alert("Current password is incorrect");
+   return;
+ }
+
+ let newPwd=await passwordInputBox("New Password:");
+ if(newPwd===null || newPwd.trim()==="") return;
+
+ let confirmPwd=await passwordInputBox("Confirm Password:");
+ if(confirmPwd===null) return;
+
+ if(newPwd!==confirmPwd){
+   alert("New Password and Confirm Password do not match");
+   return;
+ }
+
+ localStorage.setItem("clearPassword",newPwd);
+ alert("Password Changed Successfully");
+};
+
+
+const oldRenderMain = renderMain;
+renderMain = function(){
+ let tb=document.getElementById("list1");
+ tb.innerHTML="";
+ let q=(document.getElementById("searchBox")?.value||"").toLowerCase();
+
+ data.forEach((r,i)=>{
+   if(q && !(r.item.toLowerCase().includes(q) || r.detail.toLowerCase().includes(q))) return;
+
+   let tr=document.createElement("tr");
+   if(i===selectedIndex) tr.classList.add("selected");
+
+   tr.innerHTML=`
+   <td>${r.date}</td>
+   <td>${r.item}</td>
+   <td>${r.amount}</td>
+   <td>${r.detail}</td>`;
+
+   tr.onclick=()=>{
+      selectedIndex=i;
+      item.value=r.item;
+      amount.value=r.amount;
+      detail.value=r.detail;
+      renderMain();
+   };
+   tb.appendChild(tr);
+ });
+}
+renderAll();
+
+
+document.getElementById("darkModeBtn").onclick=()=>{
+ document.body.classList.toggle("dark");
+ if(document.body.classList.contains("dark")){
+   localStorage.setItem("theme","dark");
+   darkModeBtn.textContent="Light";
+ }else{
+   localStorage.setItem("theme","light");
+   darkModeBtn.textContent="Dark";
+ }
+};
+
+if(localStorage.getItem("theme")==="dark"){
+ document.body.classList.add("dark");
+ darkModeBtn.textContent="Light";
+}
+
+
+document.querySelector(".title").ondblclick=()=>{
+ let win=window.open("","_blank","width=1200,height=700");
+
+ let rows=data.map(r=>`
+ <tr>
+   <td>${r.date}</td>
+   <td>${r.item}</td>
+   <td>${r.amount}</td>
+   <td>${r.detail}</td>
+ </tr>`).join("");
+
+ win.document.write(`
+ <html>
+ <head>
+ <title>Developer By BjSquare (Bhavesh Jain)</title>
+ <style>
+ body{font-family:Segoe UI;padding:15px;background:#ffdede}
+ table{width:100%;border-collapse:collapse;background:#fff}
+ th,td{border:1px solid #ccc;padding:8px;text-align:left}
+ th{background:#b71c1c;color:#fff}
+ h2{text-align:center;color:#fff;background:#b71c1c;padding:10px}
+ 
+.purchase-title{background:#8dbb3c;color:#fff;text-align:center;padding:10px;font-size:24px;font-weight:bold;margin-top:15px}
+.purchase-panel{background:#e2f0c8;border:1px solid #aaa;padding:12px}
+.purchase-btns{display:flex;gap:5px;margin-bottom:10px}
+.purchase-btns button{flex:1;padding:10px;border:none;background:#8dbb3c;color:#fff;cursor:pointer}
+.purchase-head{background:#8dbb3c !important}
+.purchase-total{background:#8dbb3c !important}
+
+</style>
+ </head>
+ <body>
+ <h2 style="color:#b71c1c;background:white;padding:1rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:50px;"><img src="./Picture1.png" alt="" style="width:20%;">
+  <input id="searchBox" placeholder="🔍 Search Item / Detail" style="width:300px;padding:10px 20px;margin-bottom:10px">
+  Sale RECORD
+  </h2>
+ <table id="salesTable">
+ <thead>
+ <tr>
+ <th>DATE</th>
+ <th>ITEM</th>
+ <th>AMOUNT</th>
+ <th>DETAIL</th>
+ </tr>
+ </thead>
+ <tbody>${rows}</tbody>
+ </table>
+ <script>
+ document.getElementById('searchBox').addEventListener('input', function(){
+   const q=this.value.toLowerCase();
+   document.querySelectorAll('#salesTable tbody tr').forEach(tr=>{
+      const txt=tr.innerText.toLowerCase();
+      tr.style.display = txt.includes(q) ? '' : 'none';
+   });
+ });
+ <\/script>
+ </body>
+ </html>
+ `);
+};
+
+
+let purchaseData = JSON.parse(localStorage.getItem("purchaseData") || "[]");
+let purchaseSelectedIndex = -1;
+
+function savePurchase(){
+ localStorage.setItem("purchaseData",JSON.stringify(purchaseData));
+}
+
+function renderPurchaseMain(){}
+
+function renderPurchaseDateTable(){
+ let tb=document.getElementById("plist2");
+ if(!tb) return;
+ tb.innerHTML="";
+ let total=0;
+ let d=formatDate(selectedDate);
+
+ purchaseData.filter(x=>x.date===d).forEach((r,i)=>{
+   let tr=document.createElement("tr");
+   tr.innerHTML=`<td style="width:300px;text-align:left;font-size:20px;text-transform: uppercase;font-family:'MyFont3';font-weight:100;">${r.item}</td><td style="width:200px;text-align:right;font-size:20px;text-transform: uppercase;font-family:'MyFont3';font-weight:100;">${r.amount}</td>`;
+   tr.onclick=()=>{
+      let idx=purchaseData.indexOf(r);
+      purchaseSelectedIndex=idx;
+      pitem.value=r.item;
+      pamount.value=r.amount;
+      pdetail.value=r.detail;
+   };
+   tb.appendChild(tr);
+
+   let n=parseFloat(r.amount);
+   if(!isNaN(n)) total+=n;
+ });
+
+ document.getElementById("ptotal").textContent=total;
+}
+
+const oldRenderAll = renderAll;
+renderAll = function(){
+ oldRenderAll();
+ renderPurchaseDateTable();
+}
+
+document.getElementById("paddBtn").onclick=async ()=>{
+ if(!(await checkPastDatePassword())) return;
+ let item=pitem.value.trim();
+ let amount=pamount.value.trim();
+ let detail=pdetail.value.trim();
+
+ if(!item){alert("Enter Item");return;}
+ if(!amount){alert("Enter Amount");return;}
+
+ purchaseData.push({
+   date:formatDate(selectedDate),
+   item,amount,detail
+ });
+
+ savePurchase();
+ renderAll();
+
+ pitem.value="";
+ pamount.value="";
+ pdetail.value="";
+};
+
+document.getElementById("pupdateBtn").onclick=async ()=>{
+ if(purchaseSelectedIndex<0){alert("Select a row first");return;}
+
+ if(!pitem.value.trim() || !pamount.value.trim()){
+   alert("Item aur Amount blank hone par Update nahi hoga");
+   pitem.value="";
+   pamount.value="";
+   pdetail.value="";
+   purchaseSelectedIndex=-1;
+   return;
+ }
+ if(!(await checkPastDatePassword())) return;
+ purchaseData[purchaseSelectedIndex].item=pitem.value;
+ purchaseData[purchaseSelectedIndex].amount=pamount.value;
+ purchaseData[purchaseSelectedIndex].detail=pdetail.value;
+
+ savePurchase();
+ renderAll();
+
+ pitem.value="";
+ pamount.value="";
+ pdetail.value="";
+ purchaseSelectedIndex=-1;
+};
+
+document.getElementById("pdeleteBtn").onclick=async ()=>{
+ if(!(await checkPastDatePassword())) return;
+ if(purchaseSelectedIndex<0){alert("Select a row first");return;}
+ if(!confirm("Delete selected purchase record?")) return;
+
+ purchaseData.splice(purchaseSelectedIndex,1);
+ purchaseSelectedIndex=-1;
+
+ savePurchase();
+ renderAll();
+
+ pitem.value="";
+ pamount.value="";
+ pdetail.value="";
+
+ 
+};
+
+document.querySelector(".purchase-title").ondblclick=()=>{
+ let win=window.open("","_blank","width=1200,height=700");
+
+ let rows=purchaseData.map(r=>`
+ <tr>
+   <td>${r.date}</td>
+   <td>${r.item}</td>
+   <td>${r.amount}</td>
+   <td>${r.detail}</td>
+ </tr>`).join("");
+
+ win.document.write(`
+ <html>
+<head>
+<style>
+body{font-family:Segoe UI;padding:15px;background:#e2f0c8}
+h2{text-align:center;color:#fff;background:#8dbb3c;padding:10px}
+table{width:100%;border-collapse:collapse;background:#fff}
+th{background:#8dbb3c;color:#fff}
+th,td{border:1px solid #ccc;padding:8px;text-align:left}
+</style>
+</head>
+<body>
+ <h2>FORMAX FOREX - PURCHASE RECORDS</h2>
+ <input id="purchaseSearchBox" placeholder="🔍 Search Item / Detail" style="width:300px;padding:8px;margin-bottom:10px">
+ <table id="purchaseTable" border="1" width="100%" style="border-collapse:collapse">
+ <tr><th>DATE</th><th>ITEM</th><th>AMOUNT</th><th>DETAIL</th></tr>
+ ${rows}
+ </table>
+ <script>
+ document.getElementById('purchaseSearchBox').addEventListener('input', function(){
+   const q=this.value.toLowerCase();
+   document.querySelectorAll('#purchaseTable tr').forEach((tr,i)=>{
+      if(i===0) return;
+      const txt=tr.innerText.toLowerCase();
+      tr.style.display = txt.includes(q) ? '' : 'none';
+   });
+ });
+ <\/script>
+ </body></html>`);
+};
+
+renderPurchaseDateTable();
+
+
+document.getElementById("currentDate").style.cursor="pointer";
+
+document.getElementById("currentDate").onclick=()=>{
+ const picker=document.getElementById("datePicker");
+
+ let parts=formatDate(selectedDate).split("-");
+ picker.value=`${parts[2]}-${parts[1]}-${parts[0]}`;
+
+ let today=new Date();
+ picker.max=today.toISOString().split("T")[0];
+
+ if(picker.showPicker){
+   picker.showPicker();
+ }else{
+   picker.click();
+ }
+};
+
+document.getElementById("datePicker").addEventListener("change",function(){
+ if(!this.value) return;
+
+ let picked=new Date(this.value);
+
+ let today=new Date();
+ today.setHours(0,0,0,0);
+ picked.setHours(0,0,0,0);
+
+ if(picked > today){
+   alert("Future date select nahi kar sakte.");
+   return;
+ }
+
+ selectedDate=new Date(this.value);
+ showDate();
+});
+
+
+/* ===== Excel Button Add-on (No Existing Code Modified) ===== */
+(function(){
+const _ow=window.open;
+window.open=function(){
+ const w=_ow.apply(this,arguments);
+ const t=setInterval(()=>{
+  try{
+   if(!w.document||!w.document.body)return;
+   if(w.document.getElementById("__excelAddon")){clearInterval(t);return;}
+   const saleBox=w.document.getElementById("searchBox");
+   const purBox=w.document.getElementById("purchaseSearchBox");
+   function add(btnAfter,isPurchase){
+     const b=w.document.createElement("button");
+     b.id="__excelAddon";
+     b.textContent="📊 Excel";
+     b.style.cssText="padding:8px 12px;margin-left:8px;cursor:pointer";
+     btnAfter.insertAdjacentElement("afterend",b);
+     b.onclick=function(){
+       const table=isPurchase?w.document.getElementById("purchaseTable"):w.document.getElementById("salesTable");
+       let csv=[];
+       table.querySelectorAll("tr").forEach(tr=>{
+         if(tr.style.display==="none")return;
+         let row=[...tr.children].map(td=>'"'+td.innerText.replace(/"/g,'""')+'"');
+         csv.push(row.join(","));
+       });
+       const blob=new Blob([csv.join("\n")],{type:"text/csv"});
+       const a=w.document.createElement("a");
+       a.href=URL.createObjectURL(blob);
+       a.download=isPurchase?"purchase_data.csv":"sales_data.csv";
+       a.click();
+     };
+   }
+   if(saleBox) add(saleBox,false);
+   if(purBox) add(purBox,true);
+   clearInterval(t);
+  }catch(e){}
+ },200);
+ return w;
+};
+})();
+
+
+(function(){
+if(!document.getElementById('cashDoneBtn')){
+ const b=document.createElement('button');
+ b.id='cashDoneBtn';
+ b.textContent='DONE';
+ b.style.cssText='display:none;width:250px;margin-top:8px;padding:10px;font-size:24px;background:#28a745;color:#fff;border:none;cursor:pointer';
+ document.querySelector('.cash-panel').appendChild(b);
+}
+
+function isTodayDate(){
+ let t=new Date(); t.setHours(0,0,0,0);
+ let c=new Date(selectedDate); c.setHours(0,0,0,0);
+ return t.getTime()===c.getTime();
+}
+
+function cashKey(){ return "cashDetail_"+formatDate(selectedDate); }
+
+let originalCash={};
+
+function drawTotals(){
+ let total=0;
+ document.querySelectorAll('.cashQty').forEach(inp=>{
+   const d=+inp.dataset.note;
+   const q=+inp.value||0;
+   const v=d*q;
+   document.getElementById('v'+d).textContent=v;
+   total+=v;
+ });
+ document.getElementById('cashGrand').textContent=total;
+}
+
+function loadCash(){
+ originalCash=JSON.parse(localStorage.getItem(cashKey())||"{}");
+ document.querySelectorAll('.cashQty').forEach(inp=>{
+   inp.value=originalCash[inp.dataset.note]||"";
+ });
+ drawTotals();
+ document.getElementById('cashDoneBtn').style.display='none';
+}
+
+function saveCash(){
+ let data={};
+ document.querySelectorAll('.cashQty').forEach(inp=>{
+   data[inp.dataset.note]=inp.value||"";
+ });
+ localStorage.setItem(cashKey(),JSON.stringify(data));
+ originalCash=data;
+}
+
+document.querySelectorAll('.cashQty').forEach(inp=>{
+ inp.addEventListener('input',()=>{
+   drawTotals();
+
+   if(isTodayDate()){
+      saveCash();
+      return;
+   }
+
+   document.getElementById('cashDoneBtn').style.display='block';
+ });
+});
+
+const oldShowDate=showDate;
+showDate=function(){
+ loadCash();   // unsaved changes discard
+ oldShowDate();
+};
+
+window.addEventListener('beforeunload',()=>{
+ if(!isTodayDate()){
+   document.querySelectorAll('.cashQty').forEach(inp=>{
+      inp.value=originalCash[inp.dataset.note]||"";
+   });
+ }
+});
+
+document.getElementById('cashDoneBtn').onclick=async function(){
+ let pwd=await passwordInputBox("Past date cash modify karne ke liye password enter kare:");
+ if(pwd===null){
+   loadCash();
+   return;
+ }
+
+ let savedPwd=localStorage.getItem("clearPassword") || "Radhe Radhe";
+
+ if(pwd!==savedPwd){
+   alert("Wrong Password");
+   loadCash();
+   return;
+ }
+
+ saveCash();
+ drawTotals();
+ this.style.display='none';
+ alert("Cash Detail Updated Successfully");
+};
+
+
+document.querySelectorAll('.cashQty').forEach(inp=>{
+ inp.setAttribute('inputmode','numeric');
+ inp.addEventListener('keypress',e=>{
+   if(!/[0-9]/.test(e.key)) e.preventDefault();
+ });
+ inp.addEventListener('paste',e=>{
+   let t=(e.clipboardData||window.clipboardData).getData('text');
+   if(!/^\d*$/.test(t)) e.preventDefault();
+ });
+});
+
+setTimeout(loadCash,100);
+})();
+
+</script>
+</body>
+</html>
